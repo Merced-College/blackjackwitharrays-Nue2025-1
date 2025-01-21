@@ -11,7 +11,7 @@
 using namespace std;
 
 // Card suits and values are declared
-const string SUITS[] = {"Spades ♠", "Hearts ♥", "Diamonds ♦", "Clubs ♣"};
+const string SUITS[] = {"Spades ♠", "Hearts ♥", "Diamonds ♦", "Clubs ♣"}; //Added code
 const string RANKS[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 int DECK[52]; // Make sure deck has 52 cards
 int currentCardIndex = 0;
@@ -80,8 +80,9 @@ int playerTurn(int playerTotal) {
             playerTotal += cardValue(newCard);
             cout << "You drew a " << RANKS[newCard % 13] << " of " << SUITS[getSuit(newCard)] << endl;
             if (playerTotal > 21) {
+                //NEW OUTPUT: ADDED EMOJIS
                 cout << "BUST! Dealer wins. 😰" << endl;
-                counterDealer++;
+                counterDealer++; //Added dealer counter.
                 return playerTotal;
             }
 
@@ -107,11 +108,12 @@ int dealerTurn(int dealerTotal) {
 
 // Function to report the results and winner of the game
 void determineWinner(int playerTotal, int dealerTotal) {
+    //ADDED CODE: Emojis
     if (dealerTotal > 21 || playerTotal > dealerTotal) {
-        cout << "You win! 😃" << endl;
-        counterPlayer++;
+        cout << "You win! 😃" << endl; 
+        counterPlayer++; //added counter to the player.
     } else if (dealerTotal == playerTotal) {
-        cout << "Tie! 🗿" << endl;
+        cout << "Tie! 🗿" << endl; 
     } else {
         cout << "Dealer wins!" << endl;
     }
@@ -132,19 +134,7 @@ int main() {
 
         // Keep game running as long as player doesn't go over 21
         playerTotal = playerTurn(playerTotal);
-        
-/* 
-* ADDING CODE SO WHEN THE NUMBER HITS 21, IT ACCEPTS THE USER WINNING 
-*/
-/*
-        if(playerTotal == 21){
-            //Breaking line if the total is 21.
-            cout << "You win!" << endl;
-            break;
-        }
-*/
-
-//Part of the original code.
+    
         if (playerTotal > 21) {
             continue;
         }
@@ -171,7 +161,8 @@ int main() {
     }
 
     // Goodbye message, end of game 
-    cout << "Player Wins: " << counterPlayer << " Dealer Wins: " << counterDealer << endl;
+    //NEW CODE: ADDED counter.
+    cout << "Player Wins: " << counterPlayer << " Dealer Wins: " << counterDealer << endl; 
     cout << "Thanks for playing!" << endl;
     return 0;
 }
