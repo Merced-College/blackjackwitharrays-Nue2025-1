@@ -11,7 +11,7 @@
 using namespace std;
 
 // Card suits and values are declared
-const string SUITS[] = {"Spades", "Hearts", "Diamonds", "Clubs"};
+const string SUITS[] = {"Spades ♠", "Hearts ♥", "Diamonds ♦", "Clubs ♣"};
 const string RANKS[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 int DECK[52]; // Make sure deck has 52 cards
 int currentCardIndex = 0;
@@ -80,7 +80,7 @@ int playerTurn(int playerTotal) {
             playerTotal += cardValue(newCard);
             cout << "You drew a " << RANKS[newCard % 13] << " of " << SUITS[getSuit(newCard)] << endl;
             if (playerTotal > 21) {
-                cout << "BUST! Dealer wins." << endl;
+                cout << "BUST! Dealer wins. 😰" << endl;
                 counterDealer++;
                 return playerTotal;
             }
@@ -108,10 +108,10 @@ int dealerTurn(int dealerTotal) {
 // Function to report the results and winner of the game
 void determineWinner(int playerTotal, int dealerTotal) {
     if (dealerTotal > 21 || playerTotal > dealerTotal) {
-        cout << "You win!" << endl;
+        cout << "You win! 😃" << endl;
         counterPlayer++;
     } else if (dealerTotal == playerTotal) {
-        cout << "Tie!" << endl;
+        cout << "Tie! 🗿" << endl;
     } else {
         cout << "Dealer wins!" << endl;
     }
